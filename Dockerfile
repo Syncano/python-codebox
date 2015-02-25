@@ -12,3 +12,6 @@ RUN git clone https://github.com/Syncano/syncano-python.git && \
     python setup.py install
 
 ENV export SYNCANO_APIROOT='https://v4.hydraengine.com/'
+
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
