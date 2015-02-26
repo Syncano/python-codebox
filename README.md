@@ -1,10 +1,20 @@
 # python-codebox
 
-Example source code for using the newest syncano-python library from the inside:
+This repository containes a Dockerfile for a Python 2.7 container with built in support for syncano and basic python libraries.
+
+You can build a container yourself or pull it from docker registry.
+
+```
+$ docker pull syncano/python-codebox
+$ docker run -it syncano/python-codebox
+```
+
+In a container you can use syncano library for python:
 
 ```
 >>> connection = syncano.connect(api_key='my_api_key', verify_ssl=False)
 >>> connection.Instance.please.list()
 ```
 
-By default, library will use staging version of syncano v4.
+By default, syncano library will use staging version of syncano v4.
+More info about the library is [here](https://github.com/Syncano/syncano-python/tree/release/4.0).
