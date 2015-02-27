@@ -13,6 +13,7 @@ ENV export SYNCANO_APIROOT='https://v4.hydraengine.com/'
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
 
+RUN chmod 1777 /tmp
 # create a special user to run code
 # user without root privileges greatly improves security
 RUN groupadd -r syncano && useradd -r -g syncano syncano
