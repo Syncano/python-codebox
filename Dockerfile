@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -qqy git
 
 RUN pip install git+https://github.com/syncano/syncano-python@release/4.0
 
-ENV export SYNCANO_APIROOT='https://v4.hydraengine.com/'
+ENV export SYNCANO_APIROOT='https://api.syncano.io/'
 
 COPY requirements.txt /tmp/requirements.txt
 RUN pip install -r /tmp/requirements.txt
