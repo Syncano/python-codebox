@@ -4,7 +4,7 @@ MAINTAINER "Justyna Ilczuk" <justyna.ilczuk@syncano.com>
 
 ENV LAST_REFRESHED 2015-02-25
 
-RUN apt-get update && apt-get install -qqy git
+RUN apt-get update && apt-get install -qqy git libffi-dev libssl-dev
 
 RUN pip install git+https://github.com/syncano/syncano-python@release/4.0
 
