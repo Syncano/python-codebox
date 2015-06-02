@@ -12,7 +12,7 @@ $ docker run -it syncano/python-codebox
 In a container you can use syncano library for python:
 
 ```
->>> connection = syncano.connect(api_key='my_api_key', verify_ssl=False)
+>>> connection = syncano.connect(api_key='my_api_key')
 >>> connection.Instance.please.list()
 ```
 
