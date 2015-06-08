@@ -2,7 +2,7 @@ FROM python:2.7
 
 MAINTAINER "Justyna Ilczuk" <justyna.ilczuk@syncano.com>
 
-ENV LAST_REFRESHED 2015-02-25
+ENV LAST_REFRESHED 2015-06-02
 
 RUN apt-get update && apt-get install -qqy git libffi-dev libssl-dev
 
