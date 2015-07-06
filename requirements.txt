@@ -7,3 +7,4 @@ pkgtools==0.7.3
 names==0.3.0
 httplib2==0.9.1
 twilio==4.4.0
+qrcode==5.1
