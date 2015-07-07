@@ -5,8 +5,8 @@ This repository containes a Dockerfile for a Python 2.7 container with built in 
 You can build a container yourself or pull it from docker registry.
 
 ```
-$ docker pull syncano/python-codebox
-$ docker run -it syncano/python-codebox
+$ docker pull quay.io/syncano/python-codebox
+$ docker run -it quay.io/syncano/python-codebox
 ```
 
 In a container you can use syncano library for python:
