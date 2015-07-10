@@ -2,9 +2,9 @@ FROM python:2.7
 
 MAINTAINER "Justyna Ilczuk" <justyna.ilczuk@syncano.com>
 
-ENV LAST_REFRESHED 2015-06-02
+ENV LAST_REFRESHED 2015-07-10
 
-RUN apt-get update && apt-get install -qqy git libffi-dev libssl-dev
+RUN apt-get update && apt-get install -qqy git libffi-dev libssl-dev libjpeg-dev
 
 RUN pip install git+https://github.com/syncano/syncano-python@master
 
