@@ -1,8 +1,8 @@
 FROM python:2.7
 
-MAINTAINER "Justyna Ilczuk" <justyna.ilczuk@syncano.com>
+MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-ENV LAST_REFRESHED 2015-07-10
+ENV LAST_REFRESHED 2015-12-07
 
 RUN apt-get update && apt-get install -qqy git libffi-dev libssl-dev libjpeg-dev
 
