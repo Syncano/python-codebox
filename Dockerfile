@@ -1,6 +1,6 @@
 FROM python:2.7
 
-MAINTAINER "Syncano DevOps" <syncano@syncano.com>
+MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
 ENV LAST_REFRESHED 2015-12-07
 
