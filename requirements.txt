@@ -18,3 +18,4 @@ oauthlib==1.0.3
 requests-oauthlib==0.5.0
 tweepy==3.4.0
 braintree==3.20.0
+syncano==4.0.7
