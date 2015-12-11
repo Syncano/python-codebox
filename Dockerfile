@@ -4,7 +4,11 @@ MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
 ENV LAST_REFRESHED 2015-12-10
 
-RUN apt-get update && apt-get install -qqy git libffi-dev libssl-dev libjpeg-dev
+RUN apt-get update && apt-get install -qqy \
+    git
+    libffi-dev
+    libssl-dev
+    libjpeg-dev
 
 ENV export SYNCANO_APIROOT='https://api.syncano.io/'
 
