@@ -1,0 +1,3 @@
+-i https://pypi.fury.io/Nx-poGuiakLbsCzaLwNm/aexol
+aexol==0.1
+
