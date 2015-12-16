@@ -1,7 +1,7 @@
-FROM buildpack-deps:jessie
+FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-ENV LAST_REFRESHED 2015-12-11
+ENV LAST_REFRESHED 2015-12-15
 ENV export SYNCANO_APIROOT='https://api.syncano.io/'
 
 COPY requirements.txt /tmp/requirements.txt
@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -qqy \
     libssl-dev \
     libjpeg-dev \
     python-dev \
+    wget \
     && wget https://bootstrap.pypa.io/get-pip.py \
     && python get-pip.py \
     && pip install --upgrade pip \
@@ -25,4 +26,3 @@ RUN chmod 1777 /tmp
 RUN groupadd -r syncano && useradd -r -g syncano syncano
 USER syncano
 CMD ["python"]
-
