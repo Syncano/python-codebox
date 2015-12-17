@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -qqy \
 # user without root privileges greatly improves security
 RUN groupadd -r syncano \
     && useradd -r -g syncano syncano
-RUN chmod 777 /tmp
+RUN chmod 1777 /tmp
 
 USER syncano
 CMD ["python"]
