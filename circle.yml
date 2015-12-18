@@ -9,7 +9,7 @@ dependencies:
 
 test:
   override:
-    -  if [[ `docker run -it -v \`pwd\`/test.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py | grep "Error"` ]]; exit 2; fi
+    -  if [[ `docker run -it -v \`pwd\`/test.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py | grep "Error"` ]]; then exit 2; fi
 
 deployment:
   production:
