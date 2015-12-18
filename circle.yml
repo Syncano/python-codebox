@@ -4,7 +4,6 @@ machine:
 
 dependencies:
   override:
-    - sed -e "s|<REGISTRY>|$DOCKER_REGISTRY|g" -e "s|<EMAIL>|$DOCKER_EMAIL|g" -e "s|<AUTH>|$DOCKER_AUTH|g" < .dockercfg.template > ~/.dockercfg
     - sed -i 's/CMD/#CMD/g' Dockerfile
     - docker build -t quay.io/syncano/python-codebox .
 
@@ -17,6 +16,7 @@ deployment:
     branch:
       - master
     commands:
+      - sed -e "s|<REGISTRY>|$DOCKER_REGISTRY|g" -e "s|<EMAIL>|$DOCKER_EMAIL|g" -e "s|<AUTH>|$DOCKER_AUTH|g" < .dockercfg.template > ~/.dockercfg
       - sed -i 's/#CMD/CMD/g' Dockerfile
       - docker build -t quay.io/syncano/python-codebox .
       - docker pull quay.io/syncano/python-codebox
