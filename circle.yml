@@ -1,0 +1,22 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - sed -i 's/CMD/#CMD/g' Dockerfile
+    - docker build -t quay.io/syncano/python-codebox .
+
+test:
+  override:
+    -  docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
+
+deployment:
+  production:
+    branch:
+      - master
+    commands:
+      - sed -e "s|<REGISTRY>|$DOCKER_REGISTRY|g" -e "s|<EMAIL>|$DOCKER_EMAIL|g" -e "s|<AUTH>|$DOCKER_AUTH|g" < .dockercfg.template > ~/.dockercfg
+      - sed -i 's/#CMD/CMD/g' Dockerfile
+      - docker build -t quay.io/syncano/python-codebox .
+      - docker push quay.io/syncano/python-codebox
