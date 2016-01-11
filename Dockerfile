@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-ENV LAST_REFRESHED 2015-12-17
+ENV LAST_REFRESHED 2016-01-11
 ENV export SYNCANO_APIROOT='https://api.syncano.io/'
 
 COPY requirements.txt /tmp/requirements.txt
