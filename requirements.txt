@@ -20,3 +20,4 @@ tweepy==3.4.0
 braintree==3.20.0
 googleads==3.11.0
 syncano==4.0.10
+fastly==0.0.2
