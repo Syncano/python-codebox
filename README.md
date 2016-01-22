@@ -9,12 +9,11 @@ $ docker pull quay.io/syncano/python-codebox
 $ docker run -it quay.io/syncano/python-codebox
 ```
 
-In a container you can use syncano library for python:
+In a container, you can use Syncano's Python Library:
 
 ```
 >>> connection = syncano.connect(api_key='my_api_key')
 >>> connection.Instance.please.list()
 ```
 
-By default, syncano library will use staging version of syncano v4.
-More info about the library is [here](https://github.com/Syncano/syncano-python/tree/release/4.0).
+More info about the library is can be found [here](https://github.com/Syncano/syncano-python/).
