@@ -24,8 +24,7 @@ RUN apt-get update && apt-get install -qqy \
 
 # create a special user to run code
 # user without root privileges greatly improves security
-RUN groupadd -r syncano \
-    && useradd -r -g syncano syncano
+RUN useradd syncano -d /tmp -s /bin/bash
 RUN chmod 1777 /tmp
 
 USER syncano
