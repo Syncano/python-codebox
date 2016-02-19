@@ -22,3 +22,4 @@ googleads==3.11.0
 syncano==4.1.0
 fastly==0.0.2
 pandas==0.17.1
+BeautifulSoup==3.2.1
