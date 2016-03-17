@@ -21,15 +21,15 @@ RUN apt-get update && apt-get install -qqy \
     pip install --upgrade pip && \
     pip install -r /tmp/requirements.txt && \
     pip install -r /tmp/external_requirements.txt && \
-    pip install syncano==4.2.0
+    pip install syncano==4.1.0
 
 RUN mkdir /home/syncano && \
     cd /home/syncano/ && \
-    virtualenv deprecated && \
-    . new_syncano/bin/activate && \
+    virtualenv new && \
+    . new/bin/activate && \
     pip install -r /tmp/requirements.txt && \
     pip install -r /tmp/external_requirements.txt && \
-    pip install syncano==4.1.0
+    pip install syncano==4.2.0
 
 # create a special user to run code
 # user without root privileges greatly improves security

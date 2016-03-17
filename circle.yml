@@ -9,9 +9,9 @@ dependencies:
 test:
   override:
     - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
-    - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox /home/syncano/deprecated/bin/python /tmp/test.py
-    - docker run -it -v `pwd`/test2.py:/tmp/test.py quay.io/syncano/python-codebox /home/syncano/deprecated/bin/python /tmp/test.py
-    - docker run -it -v `pwd`/test3.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
+    - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox /home/syncano/new/bin/python /tmp/test.py
+    - docker run -it -v `pwd`/test2.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
+    - docker run -it -v `pwd`/test3.py:/tmp/test.py quay.io/syncano/python-codebox /home/syncano/new/bin/python /tmp/test.py
 
 deployment:
   production:
