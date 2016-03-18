@@ -1,11 +1,10 @@
 FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-ENV LAST_REFRESHED 2016-03-17
+ENV LAST_REFRESHED 2016-03-18
 ENV export SYNCANO_APIROOT='https://api.syncano.io/'
 
-COPY requirements.txt /tmp/requirements.txt
-COPY external_requirements.txt /tmp/external_requirements.txt
+COPY *requirements*.txt /tmp/
 
 RUN apt-get update && apt-get install -qqy \
     git \
@@ -19,22 +18,28 @@ RUN apt-get update && apt-get install -qqy \
     wget https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
     pip install --upgrade pip && \
-    pip install -r /tmp/requirements.txt && \
-    pip install -r /tmp/external_requirements.txt && \
-    pip install syncano==4.1.0
+    pip install -r /tmp/requirements_base.txt && \
+    mkdir /home/syncano
 
-RUN mkdir /home/syncano && \
-    cd /home/syncano/ && \
-    virtualenv new && \
-    . new/bin/activate && \
-    pip install -r /tmp/requirements.txt && \
-    pip install -r /tmp/external_requirements.txt && \
-    pip install syncano==4.2.0
+RUN cd /home/syncano/ && \
+    virtualenv v4.1 && \
+    . v4.1/bin/activate && \
+    pip install -r /tmp/requirements_v41.txt && \
+    pip install -r /tmp/external_requirements.txt
 
+RUN cd /home/syncano/ && \
+    virtualenv v4.2 && \
+    . v4.2/bin/activate && \
+    pip install -r /tmp/requirements.txt && \
+    pip install -r /tmp/external_requirements.txt
+
+RUN ln -sf /home/syncano/v4.1/bin/python /usr/bin/python && \
+    ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-42 && \
+    ln -sf /home/syncano/v4.1/bin/python /usr/bin/python27-41
 # create a special user to run code
 # user without root privileges greatly improves security
 RUN useradd syncano -d /tmp -s /bin/bash
 RUN chmod 1777 /tmp
 
 USER syncano
-CMD ["python"]
+CMD "python"
