@@ -21,14 +21,14 @@ RUN apt-get update && apt-get install -qqy \
     pip install -r /tmp/requirements_base.txt && \
     mkdir /home/syncano
 
-RUN cd /home/syncano/ && \
-    virtualenv v4.1 && \
+WORKDIR /home/syncano/
+RUN virtualenv v4.1 && \
     . v4.1/bin/activate && \
     pip install -r /tmp/requirements_v41.txt && \
-    pip install -r /tmp/external_requirements.txt
+    pip install -r /tmp/external_requirements.txt && \
+    deactivate
 
-RUN cd /home/syncano/ && \
-    virtualenv v4.2 && \
+RUN virtualenv v4.2 && \
     . v4.2/bin/activate && \
     pip install -r /tmp/requirements.txt && \
     pip install -r /tmp/external_requirements.txt
@@ -41,5 +41,6 @@ RUN ln -sf /home/syncano/v4.1/bin/python /usr/bin/python && \
 RUN useradd syncano -d /tmp -s /bin/bash
 RUN chmod 1777 /tmp
 
+WORKDIR /tmp
 USER syncano
 CMD "python"
