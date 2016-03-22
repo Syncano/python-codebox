@@ -25,7 +25,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>>
 ```
 
-In a container, you can use Syncano's Python Library:
+In a container you can use Syncano's Python Library:
 
 ```
 >>> import syncano
