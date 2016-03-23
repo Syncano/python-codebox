@@ -21,20 +21,20 @@ RUN apt-get update && apt-get install -qqy \
     mkdir /home/syncano
 
 WORKDIR /home/syncano/
-RUN virtualenv v4.1 && \
-    . v4.1/bin/activate && \
-    pip install -r /tmp/requirements_v41.txt && \
+RUN virtualenv v4.2 && \
+    . v4.2/bin/activate && \
+    pip install -r /tmp/requirements_v42.txt && \
     pip install -r /tmp/external_requirements.txt && \
     deactivate
 
-RUN virtualenv v4.2 && \
-    . v4.2/bin/activate && \
+RUN virtualenv v5.0 && \
+    . v5.0/bin/activate && \
     pip install -r /tmp/requirements.txt && \
     pip install -r /tmp/external_requirements.txt
 
-RUN ln -sf /home/syncano/v4.1/bin/python /usr/bin/python && \
-    ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-42 && \
-    ln -sf /home/syncano/v4.1/bin/python /usr/bin/python27-41
+RUN ln -sf /home/syncano/v4.2/bin/python /usr/bin/python && \
+    ln -sf /home/syncano/v5.0/bin/python /usr/bin/python27-lib5.0 && \
+    ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-lib4.2
 # create a special user to run code
 # user without root privileges greatly improves security
 RUN useradd syncano -d /tmp -s /bin/bash
