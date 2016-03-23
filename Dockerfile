@@ -33,8 +33,8 @@ RUN virtualenv v5.0 && \
     pip install -r /tmp/external_requirements.txt
 
 RUN ln -sf /home/syncano/v4.2/bin/python /usr/bin/python && \
-    ln -sf /home/syncano/v5.0/bin/python /usr/bin/python27-50 && \
-    ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-42
+    ln -sf /home/syncano/v5.0/bin/python /usr/bin/python27-lib5.0 && \
+    ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-lib4.2
 # create a special user to run code
 # user without root privileges greatly improves security
 RUN useradd syncano -d /tmp -s /bin/bash
