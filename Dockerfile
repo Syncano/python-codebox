@@ -2,7 +2,16 @@ FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
 ENV LAST_REFRESHED 2016-03-25
-ENV export SYNCANO_APIROOT='https://api.syncano.io/'
+ENV SYNCANO_APIROOT https://api.syncano.io/
+
+RUN groupadd -r syncano && \
+    useradd -u 1000 -r -g syncano syncano -d /tmp -s /bin/bash && \
+    mkdir /home/syncano && \
+    chown -R syncano /home/syncano
+
+# enable everyone to use /tmp
+RUN chmod 1777 /tmp
+# -- CUT --
 
 COPY *requirements*.txt /tmp/
 COPY *.tar.gz /tmp/
@@ -36,10 +45,6 @@ RUN tar xzvf /tmp/50.tar.gz && \
 RUN ln -sf /home/syncano/v4.2/bin/python /usr/bin/python && \
     ln -sf /home/syncano/v5.0/bin/python /usr/bin/python27-lib5.0 && \
     ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-lib4.2
-# create a special user to run code
-# user without root privileges greatly improves security
-RUN useradd syncano -d /tmp -s /bin/bash
-RUN chmod 1777 /tmp
 
 WORKDIR /tmp
 USER syncano
