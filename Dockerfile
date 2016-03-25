@@ -11,7 +11,7 @@ RUN groupadd -r syncano && \
 
 # enable everyone to use /tmp
 RUN chmod 1777 /tmp
-# -- CUT --
+# -- CUT BEGIN --
 
 COPY *requirements*.txt /tmp/
 COPY *.tar.gz /tmp/
@@ -45,6 +45,7 @@ RUN ln -sf /home/syncano/v5.0/bin/python /usr/bin/python && \
     ln -sf /home/syncano/v5.0/bin/python /usr/bin/python27-lib5.0 && \
     ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-lib4.2
 
-WORKDIR /tmp
+# -- CUT END --
 USER syncano
+WORKDIR /tmp
 CMD "python"
