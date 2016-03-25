@@ -41,7 +41,7 @@ RUN tar xzvf /tmp/50.tar.gz && \
     pip install -r /tmp/requirements.txt && \
     pip install -r /tmp/external_requirements.txt
 
-RUN ln -sf /home/syncano/v4.2/bin/python /usr/bin/python && \
+RUN ln -sf /home/syncano/v5.0/bin/python /usr/bin/python && \
     ln -sf /home/syncano/v5.0/bin/python /usr/bin/python27-lib5.0 && \
     ln -sf /home/syncano/v4.2/bin/python /usr/bin/python27-lib4.2
 

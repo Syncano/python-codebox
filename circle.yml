@@ -13,9 +13,9 @@ test:
     - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
     - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib4.2 /tmp/test.py
     - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib5.0 /tmp/test.py
-    - docker run -it -v `pwd`/test2.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
-    - docker run -it -v `pwd`/test2.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib4.2 /tmp/test.py
-    - docker run -it -v `pwd`/test3.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib5.0 /tmp/test.py
+    - docker run -it -v `pwd`/test_v50.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
+    - docker run -it -v `pwd`/test_v42.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib4.2 /tmp/test.py
+    - docker run -it -v `pwd`/test_v50.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib5.0 /tmp/test.py
 
 deployment:
   production:
