@@ -27,8 +27,7 @@ RUN apt-get update && apt-get install -qqy \
     wget && \
     wget https://bootstrap.pypa.io/get-pip.py && \
     python get-pip.py && \
-    pip install -r /tmp/requirements_base.txt && \
-    mkdir /home/syncano
+    pip install -r /tmp/requirements_base.txt
 
 WORKDIR /home/syncano/
 RUN tar xzvf /tmp/42.tar.gz && \
