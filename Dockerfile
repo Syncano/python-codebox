@@ -1,10 +1,11 @@
 FROM ubuntu:trusty
 MAINTAINER "Syncano DevOps Team" <devops@syncano.com>
 
-ENV LAST_REFRESHED 2016-03-18
+ENV LAST_REFRESHED 2016-03-25
 ENV export SYNCANO_APIROOT='https://api.syncano.io/'
 
 COPY *requirements*.txt /tmp/
+COPY *.tar.gz /tmp/
 
 RUN apt-get update && apt-get install -qqy \
     git \
@@ -21,13 +22,13 @@ RUN apt-get update && apt-get install -qqy \
     mkdir /home/syncano
 
 WORKDIR /home/syncano/
-RUN virtualenv v4.2 && \
+RUN tar xzvf /tmp/42.tar.gz && \
     . v4.2/bin/activate && \
     pip install -r /tmp/requirements_v42.txt && \
     pip install -r /tmp/external_requirements.txt && \
     deactivate
 
-RUN virtualenv v5.0 && \
+RUN tar xzvf /tmp/50.tar.gz && \
     . v5.0/bin/activate && \
     pip install -r /tmp/requirements.txt && \
     pip install -r /tmp/external_requirements.txt

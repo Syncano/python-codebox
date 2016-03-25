@@ -4,6 +4,8 @@ machine:
 
 dependencies:
   override:
+    - wget https://s3.amazonaws.com/codebox-bucket/python/42.tar.gz
+    - wget https://s3.amazonaws.com/codebox-bucket/python/50.tar.gz
     - docker build -t quay.io/syncano/python-codebox .
 
 test:
