@@ -30,13 +30,15 @@ RUN apt-get update && apt-get install -qqy \
     pip install -r /tmp/requirements_base.txt
 
 WORKDIR /home/syncano/
-RUN tar xzvf /tmp/42.tar.gz && \
+RUN virtualenv --system-site-packages v4.2 && \
+    tar xzvf /tmp/42.tar.gz --skip-old-files && \
     . v4.2/bin/activate && \
     pip install -r /tmp/requirements_v42.txt && \
     pip install -r /tmp/external_requirements.txt && \
     deactivate
 
-RUN tar xzvf /tmp/50.tar.gz && \
+RUN virtualenv --system-site-packages v5.0 && \
+    tar xzvf /tmp/50.tar.gz --skip-old-files && \
     . v5.0/bin/activate && \
     pip install -r /tmp/requirements.txt && \
     pip install -r /tmp/external_requirements.txt
