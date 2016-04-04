@@ -24,3 +24,4 @@ pandas==0.17.1
 BeautifulSoup==3.2.1
 boto3==1.2.5
 syncano==4.2.0
+mixpanel==4.3.0
