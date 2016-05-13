@@ -12,10 +12,17 @@ test:
   override:
     - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
     - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib4.2 /tmp/test.py
+
     - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib5.0 /tmp/test.py
     - docker run -it -v `pwd`/test_v50.py:/tmp/test.py quay.io/syncano/python-codebox python /tmp/test.py
+
     - docker run -it -v `pwd`/test_v42.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib4.2 /tmp/test.py
     - docker run -it -v `pwd`/test_v50.py:/tmp/test.py quay.io/syncano/python-codebox python27-lib5.0 /tmp/test.py
+
+    - if docker run -it quay.io/syncano/python-codebox python3 --version | grep -vq "Python 3.4"; then exit 1; fi
+
+    - docker run -it -v `pwd`/test.py:/tmp/test.py quay.io/syncano/python-codebox python3 /tmp/test.py
+    - docker run -it -v `pwd`/test_v50.py:/tmp/test.py quay.io/syncano/python-codebox python3-lib5.0 /tmp/test.py
 
 deployment:
   production:
