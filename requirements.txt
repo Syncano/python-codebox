@@ -23,6 +23,6 @@ fastly==0.0.2
 pandas==0.17.1
 BeautifulSoup==3.2.1
 boto3==1.2.5
-syncano==5.0.1
+syncano==5.1.0
 mixpanel==4.3.0
 mixpanel-query-py==0.1.7
