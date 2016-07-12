@@ -28,3 +28,4 @@ mixpanel==4.3.0
 mixpanel-query-py==0.1.7
 Sendinblue==2.0.2
 GitPython==2.0.5
+Mako==1.0.4
