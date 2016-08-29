@@ -23,6 +23,8 @@ RUN apt-get update && apt-get install -qqy \
     libjpeg-dev \
     python-dev \
     python3-dev \
+    python-tk \
+    python3-tk \
     python-numpy \
     python3-numpy \
     python-scipy \
