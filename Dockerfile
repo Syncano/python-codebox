@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -qqy \
     libffi-dev \
     libssl-dev \
     libjpeg-dev \
+    libxml2-dev \
     python-dev \
     python3-dev \
     python-tk \
