@@ -23,7 +23,7 @@ fastly==0.0.2
 pandas==0.17.1
 beautifulsoup4==4.4.1
 boto3==1.2.5
-syncano==5.4.1
+syncano==5.4.4
 mixpanel==4.3.0
 sendgrid==3.2.10
 python-telegram-bot==5.0.0
