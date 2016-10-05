@@ -1,0 +1,43 @@
+- name: Install Python packages in envs
+  pip:
+    virtualenv: "/home/syncano/{{ item.env }}"
+    virtualenv_python: "{{ item.python }}"
+    virtualenv_site_packages: yes
+    requirements: "/tmp/{{ item.requirements }}"
+  with_items:
+    - env: v4.2
+      python: python2.7
+      requirements: requirements_v42.txt
+    - env: v4.2
+      python: python2.7
+      requirements: external_requirements.txt
+    - env: v5.0
+      python: python2.7
+      requirements: requirements.txt
+    - env: v5.0
+      python: python2.7
+      requirements: external_requirements.txt
+    - env: p3v5.0
+      python: python3
+      requirements: requirements_python3.txt
+    - env: p3v5.0
+      python: python3
+      requirements: external_requirements.txt
+
+- name: Set soft links to runtimes
+  file:
+    src: "/home/syncano/{{ item.env }}/bin/python"
+    dest: "/usr/bin/{{ item.python }}"
+    state: link
+    force: yes
+  with_items:
+    - env: v5.0
+      python: python
+    - env: v5.0
+      python: python27-lib5.0
+    - env: v4.2
+      python: python27-lib4.2
+    - env: p3v5.0
+      python: python3
+    - env: p3v5.0
+      python: python3-lib5.0

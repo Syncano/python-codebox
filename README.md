@@ -2,10 +2,10 @@
 
 This repository contains Dockerfile for Python 2.7 image with built-in support for Syncano and selected Python libraries.
 
-You can build the image yourself:
+You can build the image yourself (Ansible 2.1.0 is required):
 
 ```
-$ docker build -t quay.io/syncano/python-codebox .
+$ ./create_python_image.sh
 ```
 
 or pull it from Docker registry:

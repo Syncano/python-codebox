@@ -1,0 +1,24 @@
+---
+- include: common.yml
+
+- name: Install requirements
+  pip:
+    name: pip
+    extra_args: "--upgrade"
+
+- name: Copy requirements files
+  copy:
+    src: "{{ item }}"
+    dest: /tmp/
+  with_items:
+    - requirements.txt
+    - requirements_base.txt
+    - requirements_v42.txt
+    - requirements_python3.txt
+    - external_requirements.txt
+
+- name: Install requirements
+  pip:
+    requirements: /tmp/requirements_base.txt
+
+- include: envs.yml

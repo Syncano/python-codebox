@@ -4,9 +4,11 @@ machine:
 
 dependencies:
   override:
-    - wget https://s3.amazonaws.com/codebox-bucket/python/42.tar.gz
-    - wget https://s3.amazonaws.com/codebox-bucket/python/50.tar.gz
-    - docker build -t quay.io/syncano/python-codebox .
+    - sudo pip install ansible==2.1.0
+    - chmod 600 image/id_rsa
+    - ./create_python_image.sh $BUILD_LEVEL
+    - docker images
+    - docker history quay.io/syncano/python-codebox
 
 test:
   override:
