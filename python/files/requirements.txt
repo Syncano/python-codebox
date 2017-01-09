@@ -26,7 +26,7 @@ boto3==1.2.5
 syncano==5.4.6
 mixpanel==4.3.0
 mixpanel-query-py==0.1.7
-Sendinblue==2.0.4
+Sendinblue==2.0.5.1
 GitPython==2.0.5
 Mako==1.0.4
 sendgrid==3.2.10
