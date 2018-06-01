@@ -3,8 +3,11 @@
 
 - name: Install requirements
   pip:
-    name: pip
+    name: " {{ item }}"
     extra_args: "--upgrade"
+  with_items:
+    - pip
+    - setuptools
 
 - name: Copy requirements files
   copy:
